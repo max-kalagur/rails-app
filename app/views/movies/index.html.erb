@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Movies</h1>
+
+<div id="movies" class="container">
+
+  <div class="card text-center mb-4">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+    
+      <% @category_options.each do |category| %>
+
+        <li class="nav-item">
+          <%= link_to category.title, category, class: "nav-link" %>
+        </li>
+
+      <% end %>
+
+      </ul>
+    </div>
+  </div>
+
+  <% @movies.each do |movie| %>
+    <%= render movie %>
+  <% end %>
+
+  <%= will_paginate @movies, renderer: BootstrapPagination::Rails %>
+  
+</div>

@@ -1,0 +1,25 @@
+<tr id="<%= dom_id movie %>">
+
+  <td>
+      <%= image_tag movie.preview.variant(:thumb) if movie.preview.attached? %>
+  </td>
+
+  <td>
+    <%= movie.category.title %>
+  </td>
+
+  <td>
+    <%= movie.title %>
+  </td>
+
+  <td>
+    <%= movie.text %>
+  </td>
+
+  <td>
+    <%= link_to "Show", admin_movie_path(movie) %> | 
+    <%= link_to "Edit", edit_admin_movie_path(movie) %> | 
+    <%= button_to "Destroy this movie", admin_movie_path(movie), method: :delete, data: { confirm: "Are you sure?" } %>
+  </td>
+
+</tr>

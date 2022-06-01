@@ -1,0 +1,56 @@
+  <div class="card mb-4">
+  <div class="card-body">
+  <div class="row movie-block" data-id="<%= movie.id %>">
+
+    <div class="col-sm">
+      <% if movie.preview.attached? %>
+        <%= link_to image_tag(movie.preview.variant(:medium)), movie %>
+      <% end %>
+
+    </div>
+    <div class="col-sm">
+
+      <%= link_to movie.title, movie %>
+        
+      <br/>
+
+      <strong>Category:</strong>
+      <%= movie.category.title %>
+
+      <br/>
+
+
+      <strong>Text:</strong>
+      <%= movie.text %>
+
+    </div>
+    <div class="col-sm">
+
+      Rating: <span class="movie-rating" ><%= movie.avg_rating %></span>
+      <br>
+      <div class="display-6 movie-stars">
+      
+        <% if user_signed_in? %>
+          <% if current_user.ratings.where(movie_id: movie.id).count > 0 %>
+            <span role='button' class="star star-set">★</span>
+          <% else %>
+            <span role='button' class="star star-not-set">☆</span>
+          <% end %>
+
+          <div class="star-list d-none">
+            <% for i in 1..10 do %>
+              <span role='button' data-i="<%= i %>" class="star-list-item">☆</span>
+            <% end %>
+          </div>
+        <% else %>
+          <%= link_to "☆", new_user_session_path, class: "text-decoration-none" %>
+        <% end %>
+
+      </div>
+      
+    </div>
+    </div>
+
+  </div>
+
+</div>

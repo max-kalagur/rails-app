@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Movies</h1>
+
+<%= link_to "New movie", new_admin_movie_path %>
+
+<div id="admin_movies">
+  <table class="table">
+    <thead>
+      <td>Preview</td>
+      <td>Category</td>
+      <td>Title</td>
+      <td>Text</td>
+      <td>Action</td>
+    </thead>
+    <tbody>
+
+      <% @movies.each do |movie| %>
+        <%= render movie %>
+      <% end %>
+
+    </tbody>
+  </table>
+</div>

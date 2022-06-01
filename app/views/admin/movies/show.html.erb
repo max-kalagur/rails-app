@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+  Category: <%= @movie.category.title %>
+<br>  
+  Title: <%= @movie.title %>
+  <br> 
+  Text: <%= @movie.text %>
+
+<div>
+  <%= link_to "Back to movies", admin_movies_path %>
+</div>

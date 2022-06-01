@@ -1,0 +1,38 @@
+<%= form_with( model: [:admin, movie]) do |form| %>
+  <% if movie.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+        <% movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :category_id, 'Category' %>
+    <%= form.select :category_id, @category_options %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div>
+    <%= image_tag movie.preview.variant(:thumb) if movie.preview.attached? %>
+    <%= form.label :preview, style: "display: block" %>
+    <%= form.file_field :preview %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

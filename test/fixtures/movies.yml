@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: "Best Movie"
+  text: "Best Movie Text"
+  slug: "best-movie"
+  category: one
+
+two:
+  title: "Worst Movie"
+  text: "Worst Movie Text"
+  slug: "worst-movie"
+  category: two
